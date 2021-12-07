@@ -13,12 +13,14 @@ class Counter extends Component {
   // }
 
   //arrow function prevents 'this' from rebinding to windows obj
-  handleIncrement = () => {
-    this.setState({ count: this.state.count + 1 })
+  handleIncrement = (product) => {
+    console.log(product);
+    this.setState({ count: this.state.count + 1 });
+
     //console.log('Increment Clicked', this.state.count);
-    // obj.method();  //this is referencing obj
-    // function()  // this is referencing windown obj - in strict mode = undefined
-  }
+    // obj.method();  //'this' is referencing obj
+    // function()  // 'this' is referencing windown obj - in strict mode = undefined
+  };
 
   //setting attribute
   style = {
@@ -31,7 +33,7 @@ class Counter extends Component {
       <Fragment>
         <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
         <button
-          onClick={this.handleIncrement}  //we do not call the method/function: we are passing a reference
+          onClick={() => this.handleIncrement({ id: 1 })} //we do not call the method/function: we are passing a reference
           style={this.style}
           className="btn btn-secondary btn-sm"
         >
