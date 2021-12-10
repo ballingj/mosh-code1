@@ -1,3 +1,5 @@
+//pre single source of truth
+
 import React, { Component } from 'react';
 
 class Counter extends Component {
